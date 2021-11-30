@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 
+import 'pages/course_details_page.dart';
+import 'pages/course_list_page.dart';
 import 'pages/home_page.dart';
 
 void main() {
@@ -19,7 +21,23 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const HomePage()
+      initialRoute: '/',
+      getPages: [
+        GetPage(
+          name: '/',
+          page: () => const HomePage(),
+        ),
+        GetPage(
+          name: '/courses/',
+          page: () => const CourseListPage(),
+        ),
+        GetPage(
+          name: '/courses/:id',
+          page: () => CourseDetailsPage(
+            id: Get.parameters['id']!,
+          ),
+        ),
+      ],
     );
   }
 }

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
-import 'course_details_page.dart';
+import 'package:get/get.dart';
 
 class CourseListPage extends StatelessWidget {
   const CourseListPage({Key? key}) : super(key: key);
@@ -18,11 +17,7 @@ class CourseListPage extends StatelessWidget {
           return ListTile(
             title: Text('Course $i'),
             onTap: () async {
-              final data = await Get.to(
-                () => CourseDetailsPage(
-                  id: i.toString(),
-                ),
-              );
+              final data = await Get.toNamed('/courses/$i');
               // ignore: avoid_print
               print(data);
             },
