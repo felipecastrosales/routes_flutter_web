@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'pages/course_list_page.dart';
+import 'package:get/get.dart';
+
 import 'pages/home_page.dart';
 
 void main() {
@@ -12,17 +13,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'Routes Flutter Web',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      initialRoute: '/',
-      routes: {
-        '/': (context) => const HomePage(),
-        '/courses': (context) => const CourseListPage(),
-      },
+      home: const HomePage()
     );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import 'course_details_page.dart';
 
@@ -16,14 +17,14 @@ class CourseListPage extends StatelessWidget {
         itemBuilder: (_, i) {
           return ListTile(
             title: Text('Course $i'),
-            onTap: () {
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (_) => CourseDetailsPage(
-                    id: i.toString(),
-                  ),
+            onTap: () async {
+              final data = await Get.to(
+                () => CourseDetailsPage(
+                  id: i.toString(),
                 ),
               );
+              // ignore: avoid_print
+              print(data);
             },
           );
         },

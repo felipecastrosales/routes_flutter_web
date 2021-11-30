@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class CourseDetailsPage extends StatelessWidget {
   const CourseDetailsPage({
@@ -13,6 +14,14 @@ class CourseDetailsPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Course $id'),
+      ),
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () {
+            Get.back(result: 'Hi');
+          },
+          child: const Text('Back'),
+        ),
       ),
     );
   }
