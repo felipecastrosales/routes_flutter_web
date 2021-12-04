@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:get/get.dart';
+import 'package:auto_route/auto_route.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -14,7 +14,10 @@ class HomePage extends StatelessWidget {
       body: Center(
         child: ElevatedButton(
           onPressed: () {
-            Get.toNamed('/courses/');
+            // context.router.push(
+            //   CourseListRoute(),
+            // );
+            context.router.pushNamed('/courses');
           },
           child: const Text('Courses list'),
         ),

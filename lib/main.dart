@@ -1,45 +1,27 @@
 import 'package:flutter/material.dart';
 
-import 'package:get/get.dart';
+import 'package:auto_route/auto_route.dart';
 
-import 'pages/course_details_page.dart';
-import 'pages/course_list_page.dart';
-import 'pages/home_page.dart';
+import 'router/router.gr.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  MyApp({Key? key}) : super(key: key);
+  final router = AppRouter();
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
+    return MaterialApp.router(
       title: 'Routes Flutter Web',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      initialRoute: '/',
-      getPages: [
-        GetPage(
-          name: '/',
-          page: () => const HomePage(),
-        ),
-        GetPage(
-          name: '/courses/',
-          page: () => CourseListPage(),
-        ),
-        GetPage(
-          name: '/courses/:id',
-          page: () => CourseDetailsPage(
-            id: Get.parameters['id']!,
-          ),
-          transition: Transition.fadeIn,
-          transitionDuration: const Duration(seconds: 2),
-        ),
-      ],
+      routerDelegate: AutoRouterDelegate(router),
+      routeInformationParser: router.defaultRouteParser(),
     );
   }
 }
