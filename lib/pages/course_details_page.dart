@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class CourseDetailsPage extends StatelessWidget {
-  const CourseDetailsPage({
+  CourseDetailsPage({
     Key? key,
     required this.id,
-  }) : super(key: key);
+  }) : super(key: key) {
+    // ignore: avoid_print
+    print(Get.parameters);
+  }
 
   final String id;
 

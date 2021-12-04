@@ -3,7 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class CourseListPage extends StatelessWidget {
-  const CourseListPage({Key? key}) : super(key: key);
+  CourseListPage({Key? key}) : super(key: key) {
+    // ignore: avoid_print
+    print(Get.parameters);
+  }
 
   @override
   Widget build(BuildContext context) {

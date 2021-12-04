@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
         ),
         GetPage(
           name: '/courses/',
-          page: () => const CourseListPage(),
+          page: () => CourseListPage(),
         ),
         GetPage(
           name: '/courses/:id',
