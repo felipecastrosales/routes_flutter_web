@@ -16,6 +16,14 @@ class CourseDetailsPage extends StatelessWidget {
       appBar: AppBar(
         title: Text('Course $id'),
       ),
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () {
+            context.router.pushNamed('/checkout');
+          },
+          child: const Text('BUY'),
+        ),
+      ),
     );
   }
 }

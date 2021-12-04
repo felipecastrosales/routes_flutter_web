@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:auto_route/auto_route.dart';
 
+import 'package:routes_flutter_web/router/guards/check_if_logged_in.dart';
 import 'router/router.gr.dart';
 
 void main() {
@@ -10,7 +11,9 @@ void main() {
 
 class MyApp extends StatelessWidget {
   MyApp({Key? key}) : super(key: key);
-  final router = AppRouter();
+  final router = AppRouter(
+    checkIfLoggedIn: CheckIfLoggedIn(),
+  );
 
   @override
   Widget build(BuildContext context) {
