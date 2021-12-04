@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'course_details_page.dart';
+import 'package:get/get.dart';
 
 class CourseListPage extends StatelessWidget {
   const CourseListPage({Key? key}) : super(key: key);
@@ -16,14 +16,10 @@ class CourseListPage extends StatelessWidget {
         itemBuilder: (_, i) {
           return ListTile(
             title: Text('Course $i'),
-            onTap: () {
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (_) => CourseDetailsPage(
-                    id: i.toString(),
-                  ),
-                ),
-              );
+            onTap: () async {
+              final data = await Get.toNamed('/courses/$i');
+              // ignore: avoid_print
+              print(data);
             },
           );
         },

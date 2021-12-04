@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:get/get.dart';
+
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
 
@@ -12,7 +14,7 @@ class HomePage extends StatelessWidget {
       body: Center(
         child: ElevatedButton(
           onPressed: () {
-            Navigator.of(context).pushNamed('/courses');
+            Get.toNamed('/courses/');
           },
           child: const Text('Courses list'),
         ),
