@@ -22,9 +22,13 @@ class CourseDetailsPage extends StatelessWidget {
       body: Center(
         child: ElevatedButton(
           onPressed: () {
-            Get.back(result: 'Hi');
+            Get.snackbar(
+              'It is a course: $id',
+              'Welcome!',
+            );
+            // Get.bottomSheet(Container(),);
           },
-          child: const Text('Back'),
+          child: const Text('showSnackBar'),
         ),
       ),
     );
