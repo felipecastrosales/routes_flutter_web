@@ -29,13 +29,15 @@ class MyApp extends StatelessWidget {
         ),
         GetPage(
           name: '/courses/',
-          page: () => const CourseListPage(),
+          page: () => CourseListPage(),
         ),
         GetPage(
           name: '/courses/:id',
           page: () => CourseDetailsPage(
             id: Get.parameters['id']!,
           ),
+          transition: Transition.fadeIn,
+          transitionDuration: const Duration(seconds: 2),
         ),
       ],
     );

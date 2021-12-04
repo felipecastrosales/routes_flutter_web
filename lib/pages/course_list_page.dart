@@ -3,7 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class CourseListPage extends StatelessWidget {
-  const CourseListPage({Key? key}) : super(key: key);
+  CourseListPage({Key? key}) : super(key: key) {
+    // ignore: avoid_print
+    print(Get.parameters);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +20,13 @@ class CourseListPage extends StatelessWidget {
           return ListTile(
             title: Text('Course $i'),
             onTap: () async {
-              final data = await Get.toNamed('/courses/$i');
+              final data = await Get.toNamed(
+                '/courses/$i',
+                arguments: {
+                  'userId': 1234,
+                },
+              );
+              // Get.to(CourseDetailsPage(id: '10',),);
               // ignore: avoid_print
               print(data);
             },

@@ -2,10 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class CourseDetailsPage extends StatelessWidget {
-  const CourseDetailsPage({
+  CourseDetailsPage({
     Key? key,
     required this.id,
-  }) : super(key: key);
+  }) : super(key: key) {
+    // print(Get.parameters);
+    // ignore: avoid_print
+    print(Get.arguments);
+  }
 
   final String id;
 
@@ -18,9 +22,13 @@ class CourseDetailsPage extends StatelessWidget {
       body: Center(
         child: ElevatedButton(
           onPressed: () {
-            Get.back(result: 'Hi');
+            Get.snackbar(
+              'It is a course: $id',
+              'Welcome!',
+            );
+            // Get.bottomSheet(Container(),);
           },
-          child: const Text('Back'),
+          child: const Text('showSnackBar'),
         ),
       ),
     );
