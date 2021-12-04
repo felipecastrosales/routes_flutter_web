@@ -26,8 +26,15 @@ class AppRouter extends _i4.RootStackRouter {
           routeData: routeData, child: const _i1.HomePage());
     },
     CourseListRoute.name: (routeData) {
+      final queryParams = routeData.queryParams;
+      final args = routeData.argsAs<CourseListRouteArgs>(
+          orElse: () => CourseListRouteArgs(
+              search: queryParams.optString('search'),
+              page: queryParams.optInt('page')));
       return _i4.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i2.CourseListPage());
+          routeData: routeData,
+          child: _i2.CourseListPage(
+              key: args.key, search: args.search, page: args.page));
     },
     CourseDetailsRoute.name: (routeData) {
       final pathParams = routeData.inheritedPathParams;
@@ -44,7 +51,9 @@ class AppRouter extends _i4.RootStackRouter {
   List<_i4.RouteConfig> get routes => [
         _i4.RouteConfig(HomeRoute.name, path: '/'),
         _i4.RouteConfig(CourseListRoute.name, path: '/courses'),
-        _i4.RouteConfig(CourseDetailsRoute.name, path: '/courses/:courseId')
+        _i4.RouteConfig(CourseDetailsRoute.name, path: '/courses/:courseId'),
+        _i4.RouteConfig('*#redirect',
+            path: '*', redirectTo: '/', fullMatch: true)
       ];
 }
 
@@ -56,10 +65,29 @@ class HomeRoute extends _i4.PageRouteInfo<void> {
 }
 
 /// generated route for [_i2.CourseListPage]
-class CourseListRoute extends _i4.PageRouteInfo<void> {
-  const CourseListRoute() : super(name, path: '/courses');
+class CourseListRoute extends _i4.PageRouteInfo<CourseListRouteArgs> {
+  CourseListRoute({_i5.Key? key, String? search, int? page})
+      : super(name,
+            path: '/courses',
+            args: CourseListRouteArgs(key: key, search: search, page: page),
+            rawQueryParams: {'search': search, 'page': page});
 
   static const String name = 'CourseListRoute';
+}
+
+class CourseListRouteArgs {
+  const CourseListRouteArgs({this.key, this.search, this.page});
+
+  final _i5.Key? key;
+
+  final String? search;
+
+  final int? page;
+
+  @override
+  String toString() {
+    return 'CourseListRouteArgs{key: $key, search: $search, page: $page}';
+  }
 }
 
 /// generated route for [_i3.CourseDetailsPage]
