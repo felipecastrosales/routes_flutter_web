@@ -20,7 +20,13 @@ class CourseListPage extends StatelessWidget {
           return ListTile(
             title: Text('Course $i'),
             onTap: () async {
-              final data = await Get.toNamed('/courses/$i');
+              final data = await Get.toNamed(
+                '/courses/$i',
+                arguments: {
+                  'userId': 1234,
+                },
+              );
+              // Get.to(CourseDetailsPage(id: '10',),);
               // ignore: avoid_print
               print(data);
             },

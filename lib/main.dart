@@ -36,6 +36,8 @@ class MyApp extends StatelessWidget {
           page: () => CourseDetailsPage(
             id: Get.parameters['id']!,
           ),
+          transition: Transition.fadeIn,
+          transitionDuration: const Duration(seconds: 2),
         ),
       ],
     );

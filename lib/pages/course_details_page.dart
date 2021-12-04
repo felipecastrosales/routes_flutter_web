@@ -6,8 +6,9 @@ class CourseDetailsPage extends StatelessWidget {
     Key? key,
     required this.id,
   }) : super(key: key) {
+    // print(Get.parameters);
     // ignore: avoid_print
-    print(Get.parameters);
+    print(Get.arguments);
   }
 
   final String id;
