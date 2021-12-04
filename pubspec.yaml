@@ -7,13 +7,17 @@ environment:
   sdk: ">=2.12.0 <3.0.0"
 
 dependencies:
+  auto_route:
   cupertino_icons: ^1.0.2
   flutter:
     sdk: flutter
   get: ^4.3.8
 
 dev_dependencies:
+  auto_route_generator:
+  build_runner: 
   flutter_lints: ^1.0.0
+
   flutter_test:
     sdk: flutter
 

@@ -1,15 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+
+import 'package:auto_route/auto_route.dart';
 
 class CourseDetailsPage extends StatelessWidget {
-  CourseDetailsPage({
+  const CourseDetailsPage({
     Key? key,
-    required this.id,
-  }) : super(key: key) {
-    // print(Get.parameters);
-    // ignore: avoid_print
-    print(Get.arguments);
-  }
+    @PathParam('courseId') required this.id,
+  }) : super(key: key);
 
   final String id;
 
@@ -22,13 +19,9 @@ class CourseDetailsPage extends StatelessWidget {
       body: Center(
         child: ElevatedButton(
           onPressed: () {
-            Get.snackbar(
-              'It is a course: $id',
-              'Welcome!',
-            );
-            // Get.bottomSheet(Container(),);
+            context.router.pushNamed('/checkout');
           },
-          child: const Text('showSnackBar'),
+          child: const Text('BUY'),
         ),
       ),
     );
