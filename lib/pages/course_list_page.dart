@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
 
-import 'package:get/get.dart';
+import 'package:auto_route/auto_route.dart';
 
 class CourseListPage extends StatelessWidget {
-  CourseListPage({Key? key}) : super(key: key) {
-    // ignore: avoid_print
-    print(Get.parameters);
-  }
+  const CourseListPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,15 +17,7 @@ class CourseListPage extends StatelessWidget {
           return ListTile(
             title: Text('Course $i'),
             onTap: () async {
-              final data = await Get.toNamed(
-                '/courses/$i',
-                arguments: {
-                  'userId': 1234,
-                },
-              );
-              // Get.to(CourseDetailsPage(id: '10',),);
-              // ignore: avoid_print
-              print(data);
+              context.router.pushNamed('/courses/$i');
             },
           );
         },
