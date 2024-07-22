@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 import 'package:auto_route/auto_route.dart';
+import 'package:routes_flutter_web/router/app_router.dart';
 import 'package:url_strategy/url_strategy.dart';
 
 import 'package:routes_flutter_web/router/guards/check_if_logged_in.dart';
-import 'router/router.gr.dart';
 
 void main() {
   setPathUrlStrategy();
@@ -12,7 +12,8 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  MyApp({Key? key}) : super(key: key);
+  MyApp({super.key});
+
   final router = AppRouter(
     checkIfLoggedIn: CheckIfLoggedIn(),
   );
