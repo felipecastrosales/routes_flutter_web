@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 
 import 'package:auto_route/auto_route.dart';
 
+@RoutePage()
 class CourseListPage extends StatelessWidget {
   const CourseListPage({
-    Key? key,
+    super.key,
     @QueryParam() this.search, // @QueryParam('s') this.search,
     @QueryParam() this.page, // @QueryParam('p') this.page,
-  }) : super(key: key);
+  });
 
   final String? search;
   final int? page;
